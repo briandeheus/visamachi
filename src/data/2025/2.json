@@ -1,0 +1,240 @@
+[
+  {
+    "name": "Professor",
+    "category": "Academic",
+    "COE": 26.6,
+    "extension": 26.6,
+    "change": 33.1
+  },
+  {
+    "name": "Artist",
+    "category": "Cultural",
+    "COE": 33.4,
+    "extension": 38.0,
+    "change": 32.3
+  },
+  {
+    "name": "Religious Activities",
+    "category": "Cultural",
+    "COE": 53.7,
+    "extension": 32.4,
+    "change": 11.7
+  },
+  {
+    "name": "Journalist",
+    "category": "Professional",
+    "COE": null,
+    "extension": 43.4,
+    "change": 45.0
+  },
+  {
+    "name": "Highly Skilled Professional 1A",
+    "category": "Professional",
+    "COE": 16.8,
+    "extension": 21.9,
+    "change": 29.8
+  },
+  {
+    "name": "Highly Skilled Professional 1B",
+    "category": "Professional",
+    "COE": 40.6,
+    "extension": 31.6,
+    "change": 38.7
+  },
+  {
+    "name": "Highly Skilled Professional 1C",
+    "category": "Professional",
+    "COE": 88.3,
+    "extension": 29.8,
+    "change": 50.3
+  },
+  {
+    "name": "Highly Skilled Professional 2",
+    "category": "Professional",
+    "COE": null,
+    "extension": null,
+    "change": 70.6
+  },
+  {
+    "name": "Business Manager",
+    "category": "Business",
+    "COE": 106.2,
+    "extension": 37.4,
+    "change": 56.1
+  },
+  {
+    "name": "Legal/Accounting",
+    "category": "Professional",
+    "COE": null,
+    "extension": 35.3,
+    "change": null
+  },
+  {
+    "name": "Medical",
+    "category": "Professional",
+    "COE": 50.8,
+    "extension": 25.6,
+    "change": 17.7
+  },
+  {
+    "name": "Researcher",
+    "category": "Academic",
+    "COE": 48.4,
+    "extension": 22.8,
+    "change": 27.3
+  },
+  {
+    "name": "Instructor",
+    "category": "Academic",
+    "COE": 38.6,
+    "extension": 32.0,
+    "change": 26.4
+  },
+  {
+    "name": "Engineer/Specialist in Humanities/Int'l Services",
+    "category": "Professional",
+    "COE": 54.9,
+    "extension": 27.6,
+    "change": 39.9
+  },
+  {
+    "name": "Intra-company Transferee",
+    "category": "Business",
+    "COE": 54.3,
+    "extension": 32.6,
+    "change": 18.9
+  },
+  {
+    "name": "Nursing Care",
+    "category": "Medical",
+    "COE": 45.5,
+    "extension": 24.5,
+    "change": 33.6
+  },
+  {
+    "name": "Entertainer",
+    "category": "Cultural",
+    "COE": 16.3,
+    "extension": 28.0,
+    "change": 15.2
+  },
+  {
+    "name": "Skilled Labor",
+    "category": "Work",
+    "COE": 95.7,
+    "extension": 34.4,
+    "change": 32.5
+  },
+  {
+    "name": "Technical Intern Training 1A",
+    "category": "Training",
+    "COE": 23.2,
+    "extension": null,
+    "change": null
+  },
+  {
+    "name": "Technical Intern Training 1B",
+    "category": "Training",
+    "COE": 18.2,
+    "extension": 31.6,
+    "change": 27.5
+  },
+  {
+    "name": "Technical Intern Training 2A",
+    "category": "Training",
+    "COE": null,
+    "extension": 28.4,
+    "change": 41.9
+  },
+  {
+    "name": "Technical Intern Training 2B",
+    "category": "Training",
+    "COE": 21.9,
+    "extension": 32.0,
+    "change": 46.9
+  },
+  {
+    "name": "Technical Intern Training 3A",
+    "category": "Training",
+    "COE": 15.0,
+    "extension": 55.7,
+    "change": null
+  },
+  {
+    "name": "Technical Intern Training 3B",
+    "category": "Training",
+    "COE": 23.2,
+    "extension": 29.9,
+    "change": 72.6
+  },
+  {
+    "name": "Cultural Activities",
+    "category": "Cultural",
+    "COE": 31.2,
+    "extension": 26.7,
+    "change": 27.9
+  },
+  {
+    "name": "Short-term Stay",
+    "category": "Temporary",
+    "COE": null,
+    "extension": 13.0,
+    "change": 8.0
+  },
+  {
+    "name": "Student",
+    "category": "Academic",
+    "COE": 86.1,
+    "extension": 60.8,
+    "change": 47.6
+  },
+  {
+    "name": "Trainee",
+    "category": "Training",
+    "COE": 53.8,
+    "extension": 29.5,
+    "change": null
+  },
+  {
+    "name": "Dependent",
+    "category": "Family",
+    "COE": 88.7,
+    "extension": 30.5,
+    "change": 25.8
+  },
+  {
+    "name": "Designated Activities",
+    "category": "Special",
+    "COE": 28.5,
+    "extension": 31.7,
+    "change": 42.6
+  },
+  {
+    "name": "Spouse or Child of Japanese National",
+    "category": "Family",
+    "COE": 69.2,
+    "extension": 35.0,
+    "change": 43.2
+  },
+  {
+    "name": "Spouse or Child of Permanent Resident",
+    "category": "Family",
+    "COE": 83.3,
+    "extension": 33.9,
+    "change": 40.6
+  },
+  {
+    "name": "Long Term Resident",
+    "category": "Family",
+    "COE": 78.4,
+    "extension": 32.6,
+    "change": 37.3
+  },
+  {
+    "name": "Permanent Resident",
+    "category": "Family",
+    "COE": null,
+    "extension": null,
+    "change": 329.3
+  }
+]
