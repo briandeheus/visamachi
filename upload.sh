@@ -10,7 +10,7 @@ DEST="$2"
 
 echo -e "\n🚀 Copying files to \033[1m$HOST:$DEST\033[0m...\n"
 
-scp src/* "$HOST":"$DEST"
+scp -r src/* "$HOST":"$DEST"
 
 if [ $? -eq 0 ]; then
   echo -e "\n✅ \033[1mTransfer complete!\033[0m\n"
