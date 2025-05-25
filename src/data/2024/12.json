@@ -2,239 +2,239 @@
   {
     "name": "Professor",
     "category": "academic",
-    "COE": 26.6,
-    "extension": 26.6,
-    "change": 33.1
+    "COE": 31.5,
+    "extension": 27.7,
+    "change": 32.2
   },
   {
     "name": "Artist",
     "category": "cultural",
-    "COE": 33.4,
-    "extension": 38.0,
-    "change": 32.3
+    "COE": 31.3,
+    "extension": 39.6,
+    "change": 30.6
   },
   {
     "name": "Religious Activities",
     "category": "cultural",
-    "COE": 53.7,
-    "extension": 32.4,
-    "change": 11.7
+    "COE": 52.5,
+    "extension": 27.7,
+    "change": 1.0
   },
   {
     "name": "Journalist",
     "category": "professional",
-    "COE": null,
-    "extension": 43.4,
-    "change": 45.0
+    "COE": 49.6,
+    "extension": 51.5,
+    "change": 27.0
   },
   {
     "name": "Highly Skilled professional 1A",
     "category": "professional",
-    "COE": 16.8,
-    "extension": 21.9,
-    "change": 29.8
+    "COE": 67.5,
+    "extension": 39.0,
+    "change": 31.2
   },
   {
     "name": "Highly Skilled professional 1B",
     "category": "professional",
-    "COE": 40.6,
-    "extension": 31.6,
-    "change": 38.7
+    "COE": 52.6,
+    "extension": 36.8,
+    "change": 41.8
   },
   {
     "name": "Highly Skilled professional 1C",
     "category": "professional",
-    "COE": 88.3,
-    "extension": 29.8,
-    "change": 50.3
+    "COE": 87.5,
+    "extension": 52.4,
+    "change": 61.6
   },
   {
     "name": "Highly Skilled professional 2",
     "category": "professional",
     "COE": null,
     "extension": null,
-    "change": 70.6
+    "change": 76.0
   },
   {
     "name": "Business Manager",
     "category": "business",
-    "COE": 106.2,
-    "extension": 37.4,
-    "change": 56.1
+    "COE": 122.1,
+    "extension": 35.3,
+    "change": 69.7
   },
   {
     "name": "Legal/Accounting",
     "category": "professional",
-    "COE": null,
-    "extension": 35.3,
+    "COE": 29.0,
+    "extension": 28.5,
     "change": null
   },
   {
     "name": "Medical",
     "category": "professional",
-    "COE": 50.8,
-    "extension": 25.6,
-    "change": 17.7
+    "COE": 35.0,
+    "extension": 28.8,
+    "change": 37.8
   },
   {
     "name": "Researcher",
     "category": "academic",
-    "COE": 48.4,
-    "extension": 22.8,
-    "change": 27.3
+    "COE": 43.2,
+    "extension": 32.0,
+    "change": 35.8
   },
   {
     "name": "Instructor",
     "category": "academic",
-    "COE": 38.6,
-    "extension": 32.0,
-    "change": 26.4
+    "COE": 16.4,
+    "extension": 31.1,
+    "change": 30.5
   },
   {
     "name": "Engineer/specialist in Humanities/Int'l Services",
     "category": "professional",
-    "COE": 54.9,
-    "extension": 27.6,
-    "change": 39.9
+    "COE": 61.8,
+    "extension": 29.9,
+    "change": 34.8
   },
   {
     "name": "Intra-company Transferee",
     "category": "business",
-    "COE": 54.3,
-    "extension": 32.6,
-    "change": 18.9
+    "COE": 53.3,
+    "extension": 32.2,
+    "change": 16.4
   },
   {
     "name": "Nursing Care",
     "category": "medical",
-    "COE": 45.5,
-    "extension": 24.5,
-    "change": 33.6
+    "COE": 72.3,
+    "extension": 36.5,
+    "change": 41.3
   },
   {
     "name": "Entertainer",
     "category": "cultural",
-    "COE": 16.3,
-    "extension": 28.0,
-    "change": 15.2
+    "COE": 15.8,
+    "extension": 25.8,
+    "change": 26.8
   },
   {
     "name": "Skilled Labor",
     "category": "work",
-    "COE": 95.7,
-    "extension": 34.4,
-    "change": 32.5
+    "COE": 115.5,
+    "extension": 31.7,
+    "change": 31.3
   },
   {
     "name": "Technical Intern training 1A",
     "category": "training",
-    "COE": 23.2,
-    "extension": null,
-    "change": null
+    "COE": 55.1,
+    "extension": 37.7,
+    "change": 61.0
   },
   {
     "name": "Technical Intern training 1B",
     "category": "training",
-    "COE": 18.2,
-    "extension": 31.6,
-    "change": 27.5
+    "COE": null,
+    "extension": 38.8,
+    "change": 57.6
   },
   {
     "name": "Technical Intern training 2A",
     "category": "training",
-    "COE": null,
-    "extension": 28.4,
-    "change": 41.9
+    "COE": 19.2,
+    "extension": null,
+    "change": null
   },
   {
     "name": "Technical Intern training 2B",
     "category": "training",
-    "COE": 21.9,
-    "extension": 32.0,
-    "change": 46.9
+    "COE": 15.8,
+    "extension": 26.7,
+    "change": 20.2
   },
   {
     "name": "Technical Intern training 3A",
     "category": "training",
-    "COE": 15.0,
-    "extension": 55.7,
-    "change": null
+    "COE": null,
+    "extension": 42.9,
+    "change": 37.5
   },
   {
     "name": "Technical Intern training 3B",
     "category": "training",
-    "COE": 23.2,
-    "extension": 29.9,
-    "change": 72.6
+    "COE": 17.2,
+    "extension": 30.6,
+    "change": 43.5
   },
   {
     "name": "Cultural Activities",
     "category": "cultural",
-    "COE": 31.2,
-    "extension": 26.7,
-    "change": 27.9
+    "COE": 16.0,
+    "extension": 27.3,
+    "change": null
   },
   {
     "name": "Short-term Stay",
     "category": "temporary",
-    "COE": null,
-    "extension": 13.0,
-    "change": 8.0
+    "COE": 18.5,
+    "extension": 26.9,
+    "change": 30.4
   },
   {
     "name": "Student",
     "category": "academic",
-    "COE": 86.1,
-    "extension": 60.8,
-    "change": 47.6
+    "COE": 25.9,
+    "extension": 23.8,
+    "change": 39.6
   },
   {
     "name": "Trainee",
     "category": "training",
-    "COE": 53.8,
-    "extension": 29.5,
-    "change": null
+    "COE": null,
+    "extension": 10.8,
+    "change": 7.1
   },
   {
     "name": "Dependent",
     "category": "family",
-    "COE": 88.7,
-    "extension": 30.5,
-    "change": 25.8
+    "COE": 28.2,
+    "extension": 33.0,
+    "change": 54.4
   },
   {
     "name": "Designated Activities",
     "category": "special",
-    "COE": 28.5,
-    "extension": 31.7,
-    "change": 42.6
+    "COE": 30.6,
+    "extension": 14.0,
+    "change": null
   },
   {
     "name": "Spouse or Child of Japanese National",
     "category": "family",
-    "COE": 69.2,
-    "extension": 35.0,
-    "change": 43.2
+    "COE": 84.9,
+    "extension": 31.0,
+    "change": 29.2
   },
   {
     "name": "Spouse or Child of Permanent Resident",
     "category": "family",
-    "COE": 83.3,
-    "extension": 33.9,
-    "change": 40.6
+    "COE": 35.6,
+    "extension": 30.9,
+    "change": 38.3
   },
   {
     "name": "Long Term Resident",
     "category": "family",
-    "COE": 78.4,
-    "extension": 32.6,
-    "change": 37.3
+    "COE": 74.7,
+    "extension": 38.5,
+    "change": 40.9
   },
   {
     "name": "Permanent Resident",
     "category": "family",
-    "COE": null,
-    "extension": null,
-    "change": 329.3
+    "COE": 88.6,
+    "extension": 35.8,
+    "change": 38.9
   }
 ]

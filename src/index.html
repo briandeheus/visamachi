@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanese Immigration Processing Times</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Primary Meta Tags -->
     <meta name="title" content="VISAMACHI / ビザ待ち - Japanese Immigration Processing Times">
     <meta name="description"
@@ -75,19 +76,22 @@
             gap: 1rem;
         }
 
+        .filter-and-date-controls {
+            display: flex;
+            gap: 2em;
+            width: 100%;
+        }
+
         .filter-control {
+            flex: 1;
             margin-bottom: 0.5rem;
             min-width: 200px;
             width: 100%;
         }
 
-        .date-control {
-            display: flex;
-            gap: 2em;
-        }
-
-        .date-control .date-select {
-            min-width: 100%;
+        .date-select-control {
+            flex: 1;
+            width: 100%;
         }
 
         label {
@@ -214,6 +218,27 @@
             font-size: 0.875rem;
             color: #6b7280;
         }
+        
+        #chart-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-container {
+            border-radius: 10px;
+            background-color: white;
+            max-width: 100%;
+            width: 50vw;
+            padding: 16px;
+        }
 
         /* Mobile-specific styles */
         @media (max-width: 768px) {
@@ -286,10 +311,16 @@
     </header>
 
     <div class="controls">
-        <div class="filter-control">
-            <label for="category-filter">Filter by Category:</label>
-            <select id="category-filter">
-            </select>
+        <div class="filter-and-date-controls">
+            <div class="filter-control">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter">
+                </select>
+            </div>
+            <div class="date-select-control">
+                <label for="date-select">Select Date:</label>
+                <select id="data-select"></select>
+            </div>
         </div>
         <div class="sort-buttons">
             <span class="sort-label">Sort by:</span>
@@ -317,6 +348,11 @@
             <tbody id="data-table-body"></tbody>
         </table>
     </div>
+    <div id="chart-wrapper">
+        <div class="chart-container">
+            <canvas id="chart"></div>
+        </div>
+    </div>
 
     <footer>
         <p>Data source: <a href="https://www.moj.go.jp/isa/applications/resources/nyuukokukanri07_00140.html">Japanese
@@ -331,52 +367,86 @@
 
 
 <script>
+    const ctx = document.getElementById('chart');
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: ["2025/2", "2025/3"],
+        datasets: [{
+            label: 'Average waiting time in days',
+            data: [10, 24],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+    /**
+     * Dates, with the latest available date first. 
+    */ 
+    const available_dates = [
+        [2025, 3],
+        [2025, 2],
+        [2025, 1],
+        [2024, 12],
+        [2024, 11],
+    ]
+
+    const visaCache = {};
+    let selectedDate = available_dates[0]
+
     const categories = [
         {
             "id": "all",
             "name": "All Categories"
         },
         {
-            "id": "Academic",
+            "id": "academic",
             "name": "Academic"
         },
         {
-            "id": "Business",
+            "id": "business",
             "name": "Business"
         },
         {
-            "id": "Cultural",
+            "id": "cultural",
             "name": "Cultural"
         },
         {
-            "id": "Family",
+            "id": "family",
             "name": "Family"
         },
         {
-            "id": "Medical",
+            "id": "medical",
             "name": "Medical"
         },
         {
-            "id": "Professional",
+            "id": "professional",
             "name": "Professional"
         },
         {
-            "id": "Special",
+            "id": "special",
             "name": "Special"
         },
         {
-            "id": "Temporary",
+            "id": "temporary",
             "name": "Temporary"
         },
         {
-            "id": "Training",
+            "id": "training",
             "name": "Training"
         },
         {
-            "id": "Work",
+            "id": "work",
             "name": "Work"
         }
     ]
+
     document.addEventListener('DOMContentLoaded', function () {
         let selectedCategory = 'all';
         let sortBy = 'name';
@@ -386,10 +456,42 @@
         const categoryFilter = document.getElementById('category-filter');
         const dataTableBody = document.getElementById('data-table-body');
         const sortButtons = document.querySelectorAll('[data-field]');
+        const chartWrapper = document.getElementById("chart-wrapper");
 
-        async function loadData(year, month) {
+        async function loadData(year, month, set=false) {
+
+            const cacheKey = `${year}-${month}`;
+            
+            console.info("Loading visa data for", cacheKey);
+
+            if (visaCache[cacheKey] !== undefined) {
+                console.info("Cached data found for", cacheKey)
+                visaData = visaCache[cacheKey];
+                return;
+            }
+            
+            console.info("Fetching remote data for", cacheKey);
+
             const res = await fetch(`/data/${year}/${month}.json`);
-            visaData = await res.json();
+            data = await res.json();
+            visaCache[cacheKey] = data;
+
+            if (set) visaData = data;
+        
+        }
+
+        async function loadAllData() {
+            for (const date of available_dates) {
+                const [year, month] = date;
+                const cacheKey = `${year}-${month}`;
+
+                if (visaCache[cacheKey] === undefined) {
+                   await loadData(year, month)
+                } else {
+                    console.info("Cached data found for", cacheKey);
+                }
+            }
+            console.info("All data loaded.");
         }
 
         function initializeCategoryFilter() {
@@ -404,6 +506,97 @@
                 selectedCategory = this.value;
                 renderTable();
             });
+        }
+        
+        function initializeDateSelect() {
+            const dateSelect = document.getElementById('data-select');
+
+            available_dates.forEach(date => {
+                const option = document.createElement('option');
+                option.value = JSON.stringify(date); // Store the date array as a string
+                option.textContent = `${date[0]}-${date[1].toString().padStart(2, '0')}`; // Format: YYYY-MM
+                dateSelect.appendChild(option);
+            });
+
+            // Set the initially selected date
+            dateSelect.value = JSON.stringify(selectedDate);
+
+            // Add event listener to handle date changes
+            dateSelect.addEventListener('change', function () {
+                selectedDate = JSON.parse(this.value); // Parse the string back into an array
+                loadData(selectedDate[0], selectedDate[1], true).then(renderTable);
+            });
+        }
+
+        chartWrapper.addEventListener("click", ()=> chartWrapper.style.display = "none");
+
+       function showHistorical(name) {
+
+            const dates = available_dates.reverse()
+            const labels = dates.map(date => `${date[0]}/${date[1]}`);
+            const coeData = [];
+            const extensionData = [];
+            const changeData = [];
+
+            dates.forEach(date => {
+                const [year, month] = date;
+                const cacheKey = `${year}-${month}`;
+                const visaData = visaCache[cacheKey];
+
+                if (visaData) {
+                    const visaEntry = visaData.find(item => item.name === name);
+                    if (visaEntry) {
+                        coeData.push(visaEntry.COE);
+                        extensionData.push(visaEntry.extension);
+                        changeData.push(visaEntry.change);
+                    } else {
+                        coeData.push(null);
+                        extensionData.push(null);
+                        changeData.push(null);
+                    }
+                } else {
+                    coeData.push(null);
+                    extensionData.push(null);
+                    changeData.push(null);
+                }
+            });
+
+            // Update chart data
+            chart.data.labels = labels;
+            chart.data.datasets = []; // Clear existing datasets
+
+            // Add COE data
+            chart.data.datasets.push({
+                label: `${name} - COE`,
+                data: coeData,
+                borderColor: 'blue',
+                borderWidth: 1,
+                fill: false
+            });
+
+            // Add Extension data
+            chart.data.datasets.push({
+                label: `${name} - Extension`,
+                data: extensionData,
+                borderColor: 'green',
+                borderWidth: 1,
+                fill: false
+            });
+
+            // Add Change data
+            chart.data.datasets.push({
+                label: `${name} - Change`,
+                data: changeData,
+                borderColor: 'red',
+                borderWidth: 1,
+                fill: false
+            });
+
+            chart.update();
+
+            // Show the chart
+            chartWrapper.style.display = 'flex';
+                
         }
 
         function initializeSortButtons() {
@@ -536,7 +729,9 @@
                 nameCell.textContent = item.name;
                 nameCell.style.fontWeight = '500';
                 nameCell.style.color = '#111827';
-
+                
+                nameCell.addEventListener("click", () => showHistorical(item.name));
+                
                 // COE cell
                 const coeCell = document.createElement('td');
                 if (item.COE !== null) {
@@ -604,10 +799,14 @@
             renderTable();
         });
 
+        initializeDateSelect();
         initializeCategoryFilter();
         initializeSortButtons();
 
-        loadData(2025, 3).then(renderTable);
+        loadData(2025, 3, true).then(renderTable);
+        // Dirty loading all data.
+        loadAllData();
+
     });
 </script>
 </body>
