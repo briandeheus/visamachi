@@ -307,9 +307,8 @@
 <div class="container">
     <header>
         <h1>VISAMACHI / ビザ待ち</h1>
-        <p class="subtitle">Japanese immigration average processing times based on March 2025 Approval Data</p>
+        <p class="subtitle">Japanese immigration average processing times based on the latest available approval data</p>
     </header>
-
     <div class="controls">
         <div class="filter-and-date-controls">
             <div class="filter-control">
@@ -389,7 +388,8 @@
     /**
      * Dates, with the latest available date first. 
     */ 
-    const available_dates = [
+    const availableDates = [
+        [2025, 4],
         [2025, 3],
         [2025, 2],
         [2025, 1],
@@ -398,7 +398,7 @@
     ]
 
     const visaCache = {};
-    let selectedDate = available_dates[0]
+    let selectedDate = availableDates[0]
 
     const categories = [
         {
@@ -481,7 +481,7 @@
         }
 
         async function loadAllData() {
-            for (const date of available_dates) {
+            for (const date of availableDates) {
                 const [year, month] = date;
                 const cacheKey = `${year}-${month}`;
 
@@ -511,7 +511,7 @@
         function initializeDateSelect() {
             const dateSelect = document.getElementById('data-select');
 
-            available_dates.forEach(date => {
+            availableDates.forEach(date => {
                 const option = document.createElement('option');
                 option.value = JSON.stringify(date); // Store the date array as a string
                 option.textContent = `${date[0]}-${date[1].toString().padStart(2, '0')}`; // Format: YYYY-MM
@@ -532,7 +532,7 @@
 
        function showHistorical(name) {
 
-            const dates = available_dates.reverse()
+            const dates = [...availableDates].reverse()
             const labels = dates.map(date => `${date[0]}/${date[1]}`);
             const coeData = [];
             const extensionData = [];
@@ -803,7 +803,8 @@
         initializeCategoryFilter();
         initializeSortButtons();
 
-        loadData(2025, 3, true).then(renderTable);
+        const latestDate = availableDates[0]
+        loadData(latestDate[0], latestDate[1], true).then(renderTable);
         // Dirty loading all data.
         loadAllData();
 
